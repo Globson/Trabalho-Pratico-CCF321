@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 28-Out-2021 às 20:38
+-- Tempo de geração: 28-Out-2021 às 21:53
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -31,15 +31,13 @@ USE `my_db`;
 
 DROP TABLE IF EXISTS `gato`;
 CREATE TABLE IF NOT EXISTS `gato` (
-  `ID_GATO` int(11) NOT NULL,
-  `NOME` varchar(45) NOT NULL,
-  `IDADE` int(11) NOT NULL,
-  `COR` varchar(45) NOT NULL,
+  `NOME` varchar(255) NOT NULL,
+  `IDADE` varchar(255) NOT NULL,
+  `COR` varchar(255) NOT NULL,
   `DESCRICAO` varchar(255) NOT NULL,
   `ANO_NASC` date NOT NULL,
   `ANO_FAL` date NOT NULL,
-  `ID_USUARIO` int(11) NOT NULL,
-  PRIMARY KEY (`ID_GATO`)
+  `NOME_USUARIO` varchar(45) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -50,11 +48,9 @@ CREATE TABLE IF NOT EXISTS `gato` (
 
 DROP TABLE IF EXISTS `tb_usuario`;
 CREATE TABLE IF NOT EXISTS `tb_usuario` (
-  `id_usuario` int(11) NOT NULL,
   `usuario` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `senha` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_usuario`)
+  `senha` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 COMMIT;
 
