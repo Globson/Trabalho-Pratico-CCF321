@@ -38,6 +38,7 @@
 		           value="<?=$row['NOME'] ?>"
 		           placeholder="Digite o nome do seu gatinho">
 		   </div>
+		   <p style="margin-top: -15px; font-size: 10px; color: red;">*Não mude o nome do gato</p>
 
 		   <div class="form-group">
 		     <label for="cor">*Cor</label>
@@ -49,6 +50,7 @@
 		           value="<?=$row['COR']; ?>"
 		           placeholder="Digite a cor do seu gatinho">
 		   </div>
+		   <p style="margin-top: -15px; font-size: 10px; color: red;">*Apenas letras</p>
 
 		   <div class="form-group">
 		     <label for="historia">*Historia</label>
