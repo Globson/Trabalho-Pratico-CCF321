@@ -21,8 +21,9 @@ if(isset($_POST['login'])){
         $_SESSION['id_usuario'] = $resultado['id'];
         $_SESSION['nome'] = $resultado['nome'];
         header('location: index.php');
+		
     }else{
-        $erros[]="<br> Usuário ou senha inválidos.";
+        $erros[]="Usuário ou senha inválidos.";
     }
 
 }
@@ -44,12 +45,14 @@ if(isset($_POST['login'])){
 		      method="post"
               >
             
-		   <h4 class="display-4 text-center">Login</h4><hr><br>
-		   <?php if (isset($_GET['error'])) { ?>
-		   <div class="alert alert-danger" role="alert">
-			  <?php echo $_GET['error']; ?>
-		    </div>
-		   <?php } ?>
+		   <h4 class="display-4 text-center">Memorial de Gatinhos 😿</h4><hr><br>
+		   <?php 
+			if(!empty($erros)){
+				foreach ($erros as $erro) {
+					echo $erro;
+				}
+			}
+			?>
 		   <div class="form-group">
 		     <label for="name">Nome de Usuário</label>
 		     <input type="name" 

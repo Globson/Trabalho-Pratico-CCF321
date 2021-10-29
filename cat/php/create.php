@@ -8,26 +8,47 @@ if (isset($_POST['create'])) {
         $data = htmlspecialchars($data);
         return $data;
 	}
-
+	$userName = validate($_POST['userName']);
 	$name = validate($_POST['name']);
-	$email = validate($_POST['email']);
+	$cor = validate($_POST['cor']);
+	$historia = validate($_POST['historia']);
+	$dataNascimento = validate($_POST['dataNascimento']);
+	$dataFalecimento = validate($_POST['dataFalecimento']);
 
-	$user_data = 'name='.$name. '&email='.$email;
 
-	if (empty($name)) {
-		header("Location: ../index.php?error=Name is required&$user_data");
-	}else if (empty($email)) {
-		header("Location: ../index.php?error=Email is required&$user_data");
-	}else {
+	$user_data = 'userName='.$userName.
+				 '&name='.$name.
+				 '&cor='.$cor.
+				 '&historia='.$historia.
+				 '&dataNascimento='.$dataNascimento.
+				 '&dataFalecimento='.$dataFalecimento;
 
-       $sql = "INSERT INTO users(name, email) 
-               VALUES('$name', '$email')";
-       $result = mysqli_query($conn, $sql);
-       if ($result) {
-       	  header("Location: ../read.php?success=successfully created");
-       }else {
-          header("Location: ../index.php?error=unknown error occurred&$user_data");
-       }
+	if (empty($userName)) {
+		header("Location: ../index.php?error=Nome do Dono Obrigatório&$user_data");
+	}else if (empty($name)) {
+		header("Location: ../index.php?error=Nome do Gatinho Obrigatório&$user_data");
 	}
+	else if (empty($cor)) {
+		header("Location: ../index.php?error=Cor Obrigatória&$user_data");
+	}
+	else if (empty($historia)) {
+		header("Location: ../index.php?error=História Obrigatória&$user_data");
+	}
+	else if (empty($dataNascimento)) {
+		header("Location: ../index.php?error=Data de Nascimento Obrigatória&$user_data");
+	}else if (empty($dataFalecimento)) {
+		header("Location: ../index.php?error=Data de Falecimento Obrigatória&$user_data");
+	}
+	else {
+
+		$sql = "INSERT INTO gato(NOME, COR, DESCRICAO, ANO_NASC, ANO_FAL, NOME_USUARIO) 
+				VALUES('$name', '$cor', '$historia', '$dataNascimento', '$dataFalecimento', '$userName')";
+		$result = mysqli_query($conn, $sql);
+		if ($result) {
+			  header("Location: ../read.php?success=Gatinho Cadastrado com Sucesso");
+		}else {
+		   header("Location: ../index.php?error=unknown error occurred&$user_data");
+		}
+	 }
 
 }

@@ -1,6 +1,6 @@
 <?php  
 
-if(isset($_GET['nome'])){
+if(isset($_GET['id'])){
    include "../db_conn.php";
     function validate($data){
         $data = trim($data);
@@ -8,11 +8,11 @@ if(isset($_GET['nome'])){
         $data = htmlspecialchars($data);
         return $data;
 	}
-	$nome = validate($_GET['nome']);
-   
-	$sql = "DELETE FROM gato
-	        WHERE NOME='$nome'";
-           
+
+	$id = validate($_GET['id']);
+
+	$sql = "DELETE FROM users
+	        WHERE id=$id";
    $result = mysqli_query($conn, $sql);
    if ($result) {
    	  header("Location: ../read.php?success=successfully deleted");

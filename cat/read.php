@@ -2,14 +2,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Create</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>Gatinhos Cadastrados</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div class="container">
-		<div class="box">
-			<h4 class="display-4 text-center">Read</h4><br>
+		<div>
+			<h4 class="display-4 text-center">Gatinhos Cadastrados 😻</h4><br>
 			<?php if (isset($_GET['success'])) { ?>
 		    <div class="alert alert-success" role="alert">
 			  <?php echo $_GET['success']; ?>
@@ -20,9 +21,13 @@
 			  <thead>
 			    <tr>
 			      <th scope="col">#</th>
-			      <th scope="col">Name</th>
-			      <th scope="col">Email</th>
-			      <th scope="col">Action</th>
+			      <th scope="col">Nome do Dono</th>
+				  <th scope="col">Nome do Gatinho</th>
+				  <th scope="col">Cor</th>
+			      <th scope="col">Historia</th>
+				  <th scope="col">Data de Nascimento</th>
+			      <th scope="col">Data de Falecimento</th>
+			      <th scope="col">Ação</th>
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -33,13 +38,17 @@
 			  	 ?>
 			    <tr>
 			      <th scope="row"><?=$i?></th>
-			      <td><?=$rows['name']?></td>
-			      <td><?php echo $rows['email']; ?></td>
-			      <td><a href="update.php?id=<?=$rows['id']?>" 
-			      	     class="btn btn-success">Update</a>
+			      <td style="width: 150px;"><?=$rows['NOME_USUARIO']?></td>
+			      <td><?php echo $rows['NOME']; ?></td>
+				  <td><?php echo $rows['COR']; ?></td>
+				  <td><?php echo $rows['DESCRICAO']; ?></td>
+				  <td><?php echo $rows['ANO_NASC']; ?></td>
+				  <td><?php echo $rows['ANO_FAL']; ?></td>
+			      <td style="width: 180px;"><a href="update.php?nome=<?=$rows['NOME']?>" 
+			      	     class="btn btn-success">Editar</a>
 
-			      	  <a href="php/delete.php?id=<?=$rows['id']?>" 
-			      	     class="btn btn-danger">Delete</a>
+			      	  <a href="php/delete.php?nome=<?=$rows['NOME']?>" 
+			      	     class="btn btn-danger">Excluir</a>
 			      </td>
 			    </tr>
 			    <?php } ?>
@@ -47,7 +56,7 @@
 			</table>
 			<?php } ?>
 			<div class="link-right">
-				<a href="index.php" class="link-primary">Create</a>
+				<a href="index.php" class="link-primary">Cadastrar novo Gato</a>
 			</div>
 		</div>
 	</div>

@@ -2,5 +2,5 @@
 
 include "db_conn.php";
 
-$sql = "SELECT * FROM gato ORDER BY NOME_USUARIO DESC";
+$sql = "SELECT * FROM users ORDER BY id DESC";
 $result = mysqli_query($conn, $sql);

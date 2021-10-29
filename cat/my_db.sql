@@ -32,7 +32,6 @@ USE `my_db`;
 DROP TABLE IF EXISTS `gato`;
 CREATE TABLE IF NOT EXISTS `gato` (
   `NOME` varchar(255) NOT NULL,
-  `IDADE` varchar(255) NOT NULL,
   `COR` varchar(255) NOT NULL,
   `DESCRICAO` varchar(255) NOT NULL,
   `ANO_NASC` date NOT NULL,
